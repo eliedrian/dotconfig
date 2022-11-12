@@ -1,0 +1,22 @@
+[alias]
+	sta = status
+	lg = log --pretty=format:%h%x09%an%x09%ad%x09%s --date=short --graph
+	ap = add -p
+	unstage = reset HEAD .
+	com = commit
+	df = diff
+	difs = diff --staged
+	dfs = diff --staged
+[pull]
+	rebase = merges
+[core]
+	editor = nvim
+	pager = diff-so-fancy | less --tabs=4 -RFX
+	page = diff-so-fancy | less --tabs=4 -RFX
+[push]
+	default = simple
+[user]
+	email = 5410435+eliedrian@users.noreply.github.com
+	name = Eli Tan
+[color]
+	ui = true

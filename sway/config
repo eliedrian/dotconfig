@@ -32,7 +32,8 @@ output * bg ~/.config/sway/bg.jpg fill
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 output eDP-1 resolution 1920x1080 position 0,200
-output HDMI-A-1 resolution 2560x1440 position 1920,0
+output HDMI-A-1 resolution 800x600 position 1920,0
+output DP-2 resolution 2560x1440 position 1920,0
 #output HDMI-A-1 resolution 1920x1080 position 1920,0
 
 ### Idle configuration
@@ -49,7 +50,9 @@ output HDMI-A-1 resolution 2560x1440 position 1920,0
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 exec swayidle -w \
-         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         timeout 599 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         timeout 600 'swaylock' \
+         before-sleep 'swaylock'
 
 ### Input configuration
 #
@@ -67,9 +70,21 @@ exec swayidle -w \
 input "1452:591:Keychron_Keychron_K6" {
 	xkb_options ctrl:swapcaps
 }
+input "1452:591:Keychron_K6" {
+	xkb_options ctrl:swapcaps
+}
+
 
 input "1:1:AT_Translated_Set_2_keyboard" {
 	xkb_options ctrl:swapcaps
+}
+
+input "12815:20565:Evision_AKKO_Keyboard" {
+	xkb_options ctrl:swapcaps
+}
+
+input "2:7:SynPS/2_Synaptics_TouchPad" {
+	tap enabled
 }
 
 ### Key bindings
@@ -212,6 +227,21 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 #
+# Special keys
+#
+
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+
+#
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
@@ -250,6 +280,12 @@ workspace 6 output HDMI-A-1
 workspace 8 output HDMI-A-1
 workspace 10 output HDMI-A-1
 
+workspace 2 output DP-2
+workspace 4 output DP-2
+workspace 6 output DP-2
+workspace 8 output DP-2
+workspace 10 output DP-2
+
 include /etc/sway/config.d/*
 
 # grimshot
@@ -260,7 +296,7 @@ bindsym $mod+Shift+s exec ~/.config/sway/grimshot copy area
 bindsym $mod+Backspace exec sleep 0.3 && pkill --signal SIGUSR1 swayidle
 
 # Autostarts
-exec ~/.config/sway/inactive-windows-transparency.py
+exec_always ~/.config/sway/inactive-windows-transparency.py
 exec fcitx5 -d
 exec gammastep-indicator
 exec wl-paste -t text --watch clipman store

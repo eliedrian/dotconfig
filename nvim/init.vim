@@ -2,6 +2,7 @@ call plug#begin()
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'junegunn/limelight.vim'
+Plug 'lervag/wiki.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/vim-pencil'
@@ -17,7 +18,8 @@ call plug#end()
 " =============================
 " Plug 'flass/vim-colorschemes'
 " =============================
-colorscheme eva01
+" colorscheme eva01
+colorscheme jellybeans
 
 " =====================================
 " Plug 'vim-airline/vim-airline'
@@ -40,6 +42,7 @@ let g:airline_section_x = '%{PencilMode()}'
 
 " show line numbers
 set number
+set relativenumber
 
 " show column line ruler
 set cc=79
@@ -56,6 +59,9 @@ augroup end
 " smart case search
 set ignorecase
 set smartcase
+
+" set timeout for keyboard shortcuts
+set timeoutlen=400
 
 " jump to next match when searching
 set incsearch
@@ -80,6 +86,7 @@ augroup spacing
 	autocmd FileType sql setlocal ts=4 sts=4 sw=4 expandtab
 	" Treat .rss files as XML
 	autocmd BufNewFile,BufRead *.rss setfiletype xml
+	autocmd FileType tex setlocal ts=2 sts=2 sw=2 expandtab
 augroup end
 
 
@@ -109,6 +116,9 @@ cmap %% <C-R>=fnameescape(expand('%:h')).'/'<CR>
 nmap <leader>ew :e %%
 nmap <leader>ev :vsp %%
 nmap <leader>es :sp %%
+
+" remap kj to move to Esc
+inoremap kj <Esc> 
 
 " =============
 " NetRW options
@@ -215,3 +225,60 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 "require'lspconfig'.ccls.setup{}
 "EOF
 
+set listchars=tab:▸\ ,eol:¬
+nmap <leader>l :set list!<CR>
+
+" =============================
+" Plug 'lervag/wiki.vim'
+" =============================
+let g:wiki_root = '~/wiki'
+let g:wiki_select_method = {
+			\ 'pages': function('wiki#fzf#pages'),
+			\ 'tags': function('wiki#fzf#tags'),
+			\ 'toc': function('wiki#fzf#toc'),
+			\}
+let g:wiki_export = {
+			\ 'args' : '--pdf-engine=lualatex',
+			\ 'from_format' : 'markdown',
+			\ 'ext' : 'pdf',
+			\ 'link_ext_replace': v:false,
+			\ 'view' : v:false,
+			\ 'output': fnamemodify(tempname(), ':h'),
+			\}
+
+
+" remap wiki.vim stuff to not overload <leader>w (save)
+" it's case sensitive
+let g:wiki_mappings_global = {
+	\ '<plug>(wiki-index)' : '<leader>WW',
+	\ '<plug>(wiki-open)' : '<leader>WN',
+	\ '<plug>(wiki-journal)' : '<leader>W<leader>W',
+	\ '<plug>(wiki-reload)' : '<leader>WX',
+	\ '<plug>(wiki-pages)' : '<leader>WP',
+	\}
+let g:wiki_mappings_local = {
+    \ '<plug>(wiki-graph-find-backlinks)' : '<leader>Wgb',
+    \ '<plug>(wiki-graph-related)' : '<leader>Wgr',
+    \ '<plug>(wiki-graph-check-links)' : '<leader>Wgc',
+    \ '<plug>(wiki-graph-check-links-g)' : '<leader>WgC',
+    \ '<plug>(wiki-graph-check-orphans)' : '<leader>WgO',
+    \ '<plug>(wiki-graph-in)' : '<leader>Wgi',
+    \ '<plug>(wiki-graph-out)' : '<leader>Wgo',
+    \ '<plug>(wiki-link-transform)' : '<leader>Wf',
+    \ '<plug>(wiki-page-delete)' : '<leader>Wd',
+    \ '<plug>(wiki-page-rename)' : '<leader>Wr',
+    \ '<plug>(wiki-page-toc)' : '<leader>Wt',
+    \ '<plug>(wiki-page-toc-local)' : '<leader>WT',
+    \ '<plug>(wiki-export)' : '<leader>Wp',
+    \ 'x_<plug>(wiki-export)' : '<leader>Wp',
+    \ '<plug>(wiki-link-show)' : '<leader>Wll',
+    \ '<plug>(wiki-link-extract-header)' : '<leader>Wlh',
+    \ '<plug>(wiki-tag-list)' : '<leader>Wsl',
+    \ '<plug>(wiki-tag-reload)' : '<leader>Wsr',
+    \ '<plug>(wiki-tag-rename)' : '<leader>Wsn',
+    \ '<plug>(wiki-tag-search)' : '<leader>Wss',
+	\}
+let g:wiki_mappings_local_journal = {
+	\ '<plug>(wiki-journal-toweek)' : '<leader>Wu',
+	\ '<plug>(wiki-journal-tomonth)' : '<leader>Wm',
+	\}

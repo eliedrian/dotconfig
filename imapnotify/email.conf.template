@@ -1,0 +1,13 @@
+{
+	"host": "imap.gmail.com",
+	"port": 993,
+	"tls": true,
+	"username": "<email>",
+	"password": "",
+	"passwordCmd": "pass <email> | head -n1",
+	"onNewMail": "gmi sync -C ~/.mail/<email>",
+	"onNewMailPost": "notmuch new",
+	"boxes": [
+		"INBOX"
+	]
+}

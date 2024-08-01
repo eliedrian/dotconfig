@@ -61,7 +61,7 @@ set ignorecase
 set smartcase
 
 " set timeout for keyboard shortcuts
-set timeoutlen=400
+set timeoutlen=250
 
 " jump to next match when searching
 set incsearch

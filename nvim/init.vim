@@ -89,6 +89,9 @@ augroup spacing
 	autocmd FileType tex setlocal ts=2 sts=2 sw=2 expandtab
 augroup end
 
+" set stuff related to neomutt mail files
+au BufNewFile,BufRead neomutt-* setlocal tw=72 fo=awq comments+=nb:>
+
 
 " ==================
 " Keyboard shortcuts

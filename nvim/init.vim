@@ -18,7 +18,6 @@ call plug#end()
 " =============================
 " Plug 'flass/vim-colorschemes'
 " =============================
-" colorscheme eva01
 colorscheme jellybeans
 
 " =====================================

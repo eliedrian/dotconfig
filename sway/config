@@ -286,7 +286,15 @@ workspace 6 output DP-2
 workspace 8 output DP-2
 workspace 10 output DP-2
 
+workspace 2 output VGA-1
+workspace 4 output VGA-1
+workspace 6 output VGA-1
+workspace 8 output VGA-1
+workspace 10 output VGA-1
+
 include /etc/sway/config.d/*
+
+mouse_warping container
 
 # grimshot
 bindsym $mod+Shift+s exec ~/.config/sway/grimshot copy area

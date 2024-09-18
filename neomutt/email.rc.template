@@ -1,0 +1,37 @@
+set folder = {{email folder under .mail}}
+set nm_default_url = "notmuch://{{mail folder}}"
+set sendmail = "msmtp -a {{email}}"
+
+unmailboxes *
+virtual-mailboxes "Inbox" "notmuch://?query=tag:personal AND thread:\"{tag:inbox}\""
+virtual-mailboxes "All Mail" "notmuch://?query=tag:personal"
+virtual-mailboxes "Drafts" "notmuch://?query=tag:personal AND tag:draft"
+virtual-mailboxes "Sent" "notmuch://?query=tag:personal AND tag:sent"
+virtual-mailboxes "Trash" "notmuch://?query=tag:personal AND tag:trash"
+virtual-mailboxes "Spam" "notmuch://?query=tag:personal AND tag:spam"
+
+# inbox folder
+set spool_file = "Inbox"
+
+
+# drafts folder
+set postponed = +Drafts
+
+unset trash
+
+# Gmail automatically saves sent mail to +[Gmail]/Sent
+# no duplicates: don't save sent mail
+unset record
+
+### Identity
+
+set realname = {{name}}
+set from = {{email}}
+set use_from = yes
+set signature = {{signature file}}
+
+### Macros ###
+# archive macro
+macro index,pager ,a "<modify-tags-then-hide>!inbox<enter><sync-mailbox>" "Archive"
+macro index S "<shell-escape>gmi sync -C {{mail folder}}<enter><shell-escape>notmuch new<enter>" "Sync Email"
+macro index \Cf "<enter-command>unset wait_key<enter><shell-escape>printf 'Enter a search term to find with notmuch: '; read x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) and path:/^{{email}}/ | head -n 600 | perl -le '@a=<>;s/\^id:// for@a;$,=\"|\";print@a' | perl -le '@a=<>; chomp@a; s/\\+/\\\\+/ for@a;print@a' \`\"<enter>" "show only messages matching a notmuch pattern"

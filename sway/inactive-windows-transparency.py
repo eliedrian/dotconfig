@@ -40,7 +40,7 @@ def on_window_title(ipc, e):
 
 
 if __name__ == "__main__":
-    transparency_val = "0.85"
+    transparency_val = "0.5"
 
     parser = argparse.ArgumentParser(
         description="This script allows you to set the transparency of unfocused windows in sway."

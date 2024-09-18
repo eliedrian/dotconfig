@@ -1,0 +1,6 @@
+#!/bin/sh
+
+notmuch tag +{{folder tag}} -- 'tag:new AND path:{{email}}/**'
+notmuch tag +draft -- 'tag:new AND path:{{drafts path}}/**'
+
+notmuch tag -new -- 'tag:new'

@@ -19,12 +19,12 @@ set $term alacritty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 #set $menu "wofi --show drun -L 6 -W 30% -I -m"
-set $menu j4-dmenu-desktop --dmenu="bemenu -i -l 5 -H 20 -n -W 0.35 -p Run"
+set $menu j4-dmenu-desktop --dmenu="bemenu -i -l 7 -H 20 -n -W 0.35 -p Run"
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/.config/sway/bg.jpg fill
+#output * bg ~/.config/sway/bg.jpg fill
 #
 # Example configuration:
 #

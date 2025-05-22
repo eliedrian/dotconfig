@@ -133,9 +133,8 @@
         "on-click": "pavucontrol-qt"
     },
     "custom/media": {
-        "format": "{icon} {}",
         "return-type": "json",
-        "max-length": 40,
+        "max-length": 120,
         "format-icons": {
             "spotify": "",
             "spotify-qt": "",

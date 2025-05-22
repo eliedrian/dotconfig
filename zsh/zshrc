@@ -78,3 +78,6 @@ alias ls='lsd'
 
 # do ls after cd
 cd() { builtin cd "$@" && ls; }
+
+source /usr/share/nvm/init-nvm.sh
+

@@ -1,5 +1,8 @@
 typeset -U path
 path=(~/.texlive/2023/bin/x86_64-linux $path)
+# rubygem bins
+export GEM_HOME="$(gem env user_gemhome)"
+path=($GEM_HOME/bin $path)
 
 typeset -U manpath
 manpath=(~/.texlive/2023/texmf-dist/doc/man $manpath)
@@ -24,4 +27,3 @@ export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 
 export EDITOR=nvim
-path=($HOME/.local/bin $(ruby -e 'puts Gem.user_dir')/bin $path)

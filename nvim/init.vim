@@ -94,6 +94,7 @@ au BufNewFile,BufRead neomutt-* setlocal tw=72 fo=awq comments+=nb:>
 
 " set vimwiki stuff
 au BufNewFile,BufRead *.wiki setlocal tw=79
+" au BufNewFile,BufRead *.wiki setlocal tw=79 fo=awtn
 
 
 " ==================

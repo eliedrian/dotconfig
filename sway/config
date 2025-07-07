@@ -306,7 +306,7 @@ bindsym $mod+Backspace exec sleep 0.3 && pkill --signal SIGUSR1 swayidle
 # wiki.vim open journal
 #bindsym $mod+n exec $term -e nvim +WikiJournal
 #bindsym $mod+Comma exec $term -e nvim +WikiPages
-bindsym $mod+Comma exec $term -e nvim ~/vimwiki/index.wiki
+bindsym $mod+Comma exec $term --working-directory=/home/tan/vimwiki -e nvim ~/vimwiki/index.wiki
 
 # Autostarts
 exec_always ~/.config/sway/inactive-windows-transparency.py

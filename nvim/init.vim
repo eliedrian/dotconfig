@@ -69,6 +69,9 @@ set timeoutlen=250
 " jump to next match when searching
 set incsearch
 
+" show partial subs in a split preview window
+set inccommand=split
+
 " set command history to a lot more
 set history=10000
 

@@ -13,6 +13,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vimwiki/vimwiki'
 " Plug 'neovim/nvim-lspconfig'
+Plug 'nathangrigg/vim-beancount'
 call plug#end()
 
 " =============================

@@ -217,7 +217,8 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <leader>rn <Plug>(coc-rename)
 
 " native statusline support
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+let g:airline#extensions#coc#enabled = 1
+let g:airline#extensions#coc#show_coc_status = 1
 
 "lua <<EOF
 "require'lspconfig'.ccls.setup{}

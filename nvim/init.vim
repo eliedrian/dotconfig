@@ -47,6 +47,9 @@ set relativenumber
 " preserve view when jumping through buffers
 set jumpoptions=stack,view
 
+" number of lines before scrolling view
+set scrolloff=15
+
 " show column line ruler
 set cc=79
 

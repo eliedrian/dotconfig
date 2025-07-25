@@ -44,6 +44,9 @@ let g:airline_section_x = '%{PencilMode()}'
 set number
 set relativenumber
 
+" preserve view when jumping through buffers
+set jumpoptions=stack,view
+
 " show column line ruler
 set cc=79
 

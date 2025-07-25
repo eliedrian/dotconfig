@@ -111,6 +111,7 @@ au BufNewFile,BufRead neomutt-* setlocal tw=72 fo=awq comments+=nb:>
 au BufNewFile,BufRead *.wiki setlocal tw=79
 " au BufNewFile,BufRead *.wiki setlocal tw=79 fo=awtn
 
+au FileType beancount let b:beancount_root="index.bean"
 
 " ==================
 " Keyboard shortcuts

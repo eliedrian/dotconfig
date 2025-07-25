@@ -11,7 +11,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-scripts/scrollfix'
 Plug 'vimwiki/vimwiki'
 " Plug 'neovim/nvim-lspconfig'
 call plug#end()
@@ -148,14 +147,6 @@ let g:limelight_default_coefficient=0.4
 " shortcut to toggle limelight
 nmap <leader>l :Limelight!!<CR>
 xmap <leader>l <Plug>(Limelight)
-
-" =================
-" Scrollfix options
-" Plug 'vim-scripts/scrollfix'
-" =================
-
-" don't inform that scrollfix is happening
-let g:scrollinfo=0
 
 " ===========================
 " Plug 'preservim/vim-pencil'

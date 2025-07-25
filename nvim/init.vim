@@ -50,6 +50,9 @@ set jumpoptions=stack,view
 " number of lines before scrolling view
 set scrolloff=15
 
+set cursorline
+set cursorlineopt=number
+
 " show column line ruler
 set cc=79
 

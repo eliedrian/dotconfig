@@ -50,7 +50,10 @@ set cc=79
 set termguicolors
 
 " on save commands
-augroup onsave
+augroup sourceconfig
+	" remove all autocmds in group before recreating one
+	" fixes slow saving after multiple writes
+	autocmd!
 	" source init.vim immediately after saving
 	autocmd BufWritePost init.vim source $MYVIMRC
 augroup end

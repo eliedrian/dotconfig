@@ -166,7 +166,7 @@ window#waybar.hidden {
   }
 
   #temperature {
-    background-color: #f0932b;
+    background-color: @color2;
   }
 
   #temperature.critical {

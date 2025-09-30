@@ -20,7 +20,7 @@
   border: none;
   border-radius: 0;
   /* `otf-font-awesome` is required to be installed for icons */
-  font-family: "Inter", "Font Awesome 6 Free";
+  font-family: "Inter", "Font Awesome 7 Free";
   font-size: 12px;
   min-height: 0;
 }

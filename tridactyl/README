@@ -1,0 +1,5 @@
+This doesn't automatically load into tridactyl.
+
+Import config with `source --clipboard` OR `source --url <github url>`.
+
+Obtain config with `mktridactylrc --clipboard`.

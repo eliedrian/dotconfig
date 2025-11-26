@@ -61,11 +61,11 @@ TERM = "xterm-256color"
 size = 10.0
 
 [font.bold]
-family = "Iosevka Term"
+family = "Iosevka Term Extended"
 style = "Bold"
 
 [font.bold_italic]
-family = "Iosevka Term"
+family = "Iosevka Term Extended"
 style = "Bold Italic"
 
 [font.glyph_offset]
@@ -73,11 +73,11 @@ x = 0
 y = 0
 
 [font.italic]
-family = "Iosevka Term"
+family = "Iosevka Term Extended"
 style = "Italic"
 
 [font.normal]
-family = "Iosevka Term"
+family = "Iosevka Term Extended"
 style = "Regular"
 
 [font.offset]

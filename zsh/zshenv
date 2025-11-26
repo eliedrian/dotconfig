@@ -4,9 +4,6 @@ path=(~/.texlive/2023/bin/x86_64-linux $path)
 export GEM_HOME="$(gem env user_gemhome)"
 path=($GEM_HOME/bin $path)
 
-typeset -U manpath
-manpath=(~/.texlive/2023/texmf-dist/doc/man $manpath)
-
 export -TU INFOPATH infopath
 infopath=(~/.texlive/2023/texmf-dist/doc/info $infopath)
 

@@ -1,0 +1,25 @@
+#/bin/sh
+
+set -e
+
+accounts=(
+	personal
+	upmail
+)
+
+tag_folder() {
+	local folder="$1"
+	shift
+
+	notmuch tag "$@" -- "tag:new and folder:\"$account/$folder\""
+}
+
+for account in "${accounts[@]}"; do
+	tag_folder "[Gmail]/All Mail" +archive +"$account"
+	tag_folder "INBOX" -archive +inbox +"$account"
+	tag_folder "[Gmail]/Sent Mail" +sent +"$account"
+	tag_folder "[Gmail]/Spam" +spam +"$account"
+	tag_folder "[Gmail]/Trash" +trash +"$account"
+done
+
+notmuch tag -new -- tag:new

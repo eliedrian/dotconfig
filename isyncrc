@@ -35,7 +35,7 @@ Channel personal
 Far :personal-remote:
 Near :personal-local:
 SyncState *
-Patterns ![Gmail]* INBOX "[Gmail]/All Mail" "[Gmail]/Sent Mail" "[Gmail]/Spam" "[Gmail]/Drafts"
+Patterns ![Gmail]* INBOX "[Gmail]/All Mail" "[Gmail]/Sent Mail" "[Gmail]/Spam" "[Gmail]/Trash"
 
 MaildirStore upmail-local
 Path ~/.mail/upmail/
@@ -44,15 +44,16 @@ SubFolders Verbatim
 Trash None
 
 IMAPStore upmail-remote
-Host imaps:imap.gmail.com
+Host imap.gmail.com
 UserCmd "cat ~/.mail/upmail-username"
 PassCmd "pass $(cat ~/.mail/upmail-username)"
+TLSType IMAPS
 
 Channel upmail
 Far :upmail-remote:
 Near :upmail-local:
 SyncState *
-Patterns ![Gmail]* "[Gmail]/All Mail" "[Gmail]/Sent Mail" "[Gmail]/Spam" "[Gmail]/Drafts"
+Patterns ![Gmail]* INBOX "[Gmail]/All Mail" "[Gmail]/Sent Mail" "[Gmail]/Spam" "[Gmail]/Trash"
 
 Group boxes
 Channels personal upmail

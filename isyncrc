@@ -1,0 +1,59 @@
+# Global configuration section
+#   Values here are used as defaults for any following Channel section that
+#   doesn't specify them.
+Expunge None
+Create Both
+Sync Full
+
+# More sections follow
+#
+# !!!! Note that empty lines delimit sections !!!!
+
+
+# Fetch password from gnome-keyring:
+#PassCmd "gnome-keyring-query get mail_pw"
+# Fetch password from .netrc:
+#PassCmd "sed -n -e 's,^machine work\\.host\\.com login tehuser password \\(.*\\),\\1,p' < $HOME/.netrc"
+# Fetch password from a gpg-encrypted file:
+#PassCmd "gpg --quiet --for-your-eyes-only --decrypt $HOME/imappassword.gpg"
+# Fetch password from pwmd (http://pwmd.sourceforge.net/):
+#PassCmd "echo -ne 'GET myIsp\\tpassword' | pwmc datafile"
+
+MaildirStore personal-local
+Path ~/.mail/personal/
+Inbox ~/.mail/personal/INBOX
+SubFolders Verbatim
+Trash None
+
+IMAPStore personal-remote
+Host imap.gmail.com
+UserCmd "cat ~/.mail/personal-username"
+PassCmd "pass $(cat ~/.mail/personal-username)@gmail.com"
+TLSType IMAPS
+
+Channel personal
+Far :personal-remote:
+Near :personal-local:
+SyncState *
+Patterns ![Gmail]* INBOX "[Gmail]/All Mail" "[Gmail]/Sent Mail" "[Gmail]/Spam" "[Gmail]/Drafts"
+
+MaildirStore upmail-local
+Path ~/.mail/upmail/
+Inbox ~/.mail/upmail/INBOX
+SubFolders Verbatim
+Trash None
+
+IMAPStore upmail-remote
+Host imaps:imap.gmail.com
+UserCmd "cat ~/.mail/upmail-username"
+PassCmd "pass $(cat ~/.mail/upmail-username)"
+
+Channel upmail
+Far :upmail-remote:
+Near :upmail-local:
+SyncState *
+Patterns ![Gmail]* "[Gmail]/All Mail" "[Gmail]/Sent Mail" "[Gmail]/Spam" "[Gmail]/Drafts"
+
+Group boxes
+Channels personal upmail
+

@@ -28,7 +28,7 @@ Trash None
 IMAPStore personal-remote
 Host imap.gmail.com
 UserCmd "cat ~/.mail/personal-username"
-PassCmd "pass $(cat ~/.mail/personal-username)@gmail.com"
+PassCmd "pass $(cat ~/.mail/personal-username)"
 TLSType IMAPS
 
 Channel personal

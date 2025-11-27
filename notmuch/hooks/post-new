@@ -17,9 +17,10 @@ tag_folder() {
 for account in "${accounts[@]}"; do
 	tag_folder "[Gmail]/All Mail" +"$account"
 	tag_folder "INBOX" +inbox +"$account"
-	tag_folder "[Gmail]/Sent Mail" +sent +"$account"
 	tag_folder "[Gmail]/Spam" +spam +"$account"
 	tag_folder "[Gmail]/Trash" +trash +"$account"
+	
+	notmuch tag +sent -- tag:new and from:"$(cat ~/.mail/$account-username)"
 done
 
 notmuch tag -new -- tag:new

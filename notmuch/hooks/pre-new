@@ -2,6 +2,8 @@
 
 MBSYNC=$(pgrep mbsync)
 
+set -e
+
 if [ -n "$MBSYNC" ]; then
     echo "mbsync is already running... Exiting."
     exit 0

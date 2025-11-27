@@ -1,0 +1,27 @@
+maildir: ~/.mail
+rename: true
+rule_match_mode: unique
+rules:
+  - folder: "personal/[Gmail]/Trash"
+    query: tag:trash
+    prefix: personal
+
+  - folder: "personal/[Gmail]/Spam"
+    query: tag:spam and not tag:trash
+    prefix: personal
+
+  - folder: "personal/INBOX"
+    query: tag:inbox and not tag:trash
+    prefix: personal
+
+  - folder: "upmail/[Gmail]/Trash"
+    query: tag:trash
+    prefix: upmail
+
+  - folder: "upmail/[Gmail]/Spam"
+    query: tag:spam and not tag:trash
+    prefix: upmail
+
+  - folder: "upmail/INBOX"
+    query: tag:inbox and not tag:trash
+    prefix: upmail

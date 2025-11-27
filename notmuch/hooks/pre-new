@@ -9,4 +9,6 @@ if [ -n "$MBSYNC" ]; then
     exit 0
 fi
 
+notmuch-mailmover
+
 mbsync -a

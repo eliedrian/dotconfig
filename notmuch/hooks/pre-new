@@ -1,0 +1,10 @@
+#!/bin/sh
+
+MBSYNC=$(pgrep mbsync)
+
+if [ -n "$MBSYNC" ]; then
+    echo "mbsync is already running... Exiting."
+    exit 0
+fi
+
+mbsync -a

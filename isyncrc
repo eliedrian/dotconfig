@@ -35,7 +35,7 @@ Channel personal
 Far :personal-remote:
 Near :personal-local:
 SyncState *
-Patterns ![Gmail]* INBOX "[Gmail]/All Mail" "[Gmail]/Sent Mail" "[Gmail]/Spam" "[Gmail]/Trash"
+Patterns ![Gmail]* "INBOX" "[Gmail]/All Mail" "[Gmail]/Spam" "[Gmail]/Trash"
 
 MaildirStore upmail-local
 Path ~/.mail/upmail/
@@ -53,7 +53,7 @@ Channel upmail
 Far :upmail-remote:
 Near :upmail-local:
 SyncState *
-Patterns ![Gmail]* INBOX "[Gmail]/All Mail" "[Gmail]/Sent Mail" "[Gmail]/Spam" "[Gmail]/Trash"
+Patterns ![Gmail]* "INBOX" "[Gmail]/All Mail" "[Gmail]/Spam" "[Gmail]/Trash"
 
 Group boxes
 Channels personal upmail

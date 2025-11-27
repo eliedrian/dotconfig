@@ -1,0 +1,6 @@
+INBOX = tag:inbox and tag:upmail
+All Mail = tag:upmail
+Trash = tag:trash and tag:upmail
+Spam = tag:spam and tag:upmail
+Sent = tag:sent and tag:upmail
+

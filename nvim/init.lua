@@ -61,6 +61,9 @@ vim.opt.listchars = {
 		eol = '¬'
 }
 
+-- fix completion
+vim.opt.completeopt = { 'menuone', 'noselect', 'popup' }
+
 -- =======================
 -- General editor settings
 -- =========END===========
@@ -109,4 +112,14 @@ vim.g.netrw_liststyle = 3
 -- NetRW
 -- =END=
 
+-- =====
+--  LSP
+-- =====
 
+vim.lsp.enable({
+		'clangd'
+})
+
+-- =====
+--  LSP
+-- =END=

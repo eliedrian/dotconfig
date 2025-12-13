@@ -3,25 +3,34 @@ rename: true
 rule_match_mode: unique
 rules:
   - folder: "personal/[Gmail]/Trash"
-    query: tag:trash
+    query: tag:personal and tag:trash
     prefix: personal
 
   - folder: "personal/[Gmail]/Spam"
-    query: tag:spam and not tag:trash
+    query: tag:personal and tag:spam and not tag:trash
     prefix: personal
 
   - folder: "personal/INBOX"
-    query: tag:inbox and not tag:trash
+    query: tag:personal and tag:inbox and not tag:trash
+    prefix: personal
+
+  - folder: "personal/[Gmail]/All Mail"
+    query: tag:personal and not (tag:inbox or tag:trash or tag:spam)
     prefix: personal
 
   - folder: "upmail/[Gmail]/Trash"
-    query: tag:trash
+    query: tag:upmail and tag:trash
     prefix: upmail
 
   - folder: "upmail/[Gmail]/Spam"
-    query: tag:spam and not tag:trash
+    query: tag:upmail and tag:spam and not tag:trash
     prefix: upmail
 
   - folder: "upmail/INBOX"
-    query: tag:inbox and not tag:trash
+    query: tag:upmail and tag:inbox and not tag:trash
     prefix: upmail
+
+  - folder: "upmail/[Gmail]/All Mail"
+    query: tag:upmail and not (tag:inbox or tag:trash or tag:spam)
+    prefix: upmail
+

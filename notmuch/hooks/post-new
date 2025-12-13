@@ -11,16 +11,19 @@ tag_folder() {
 	local folder="$1"
 	shift
 
-	notmuch tag "$@" -- "tag:new and folder:\"$account/$folder\""
+	notmuch tag "$@" -- \(tag:new or tag:renew\) and folder:\""/$account/$folder/"\"
 }
 
+notmuch tag +renew -inbox -trash -spam -- lastmod:-15..
+
 for account in "${accounts[@]}"; do
-	tag_folder "[Gmail]/All Mail" +"$account"
+	tag_folder "\[Gmail\]/All Mail" +"$account"
 	tag_folder "INBOX" +inbox +"$account"
-	tag_folder "[Gmail]/Spam" +spam +"$account"
-	tag_folder "[Gmail]/Trash" +trash +"$account"
+	tag_folder "\[Gmail\]/Spam" +spam +"$account"
+	tag_folder "\[Gmail\]/Trash" +trash +"$account"
 	
 	notmuch tag +sent -- tag:new and from:"$(cat ~/.mail/$account-username)"
 done
 
 notmuch tag -new -- tag:new
+notmuch tag -renew -- tag:renew

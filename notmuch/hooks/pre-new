@@ -9,6 +9,10 @@ if [ -n "$MBSYNC" ]; then
     exit 0
 fi
 
+# delete mail from INBOX when mail is archived (not in inbox)
+notmuch search --output=files -- not tag:inbox and folder:/INBOX/ | grep INBOX | xargs -r rm 
+notmuch new --no-hooks
+
 notmuch-mailmover
 
 mbsync -a

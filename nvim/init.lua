@@ -93,7 +93,7 @@ local expand_current_dir_command = '<C-R>=fnameescape(expand("%:h"))."/"<cr>'
 vim.keymap.set('c', '%%', expand_current_dir_command)
 
 -- map opening current dir
-vim.keymap.set('n', '<leader>ew', ':e %%' .. expand_current_dir_command)
+vim.keymap.set('n', '<leader>ew', ':e ' .. expand_current_dir_command)
 vim.keymap.set('n', '<leader>ev', ':vsp ' .. expand_current_dir_command)
 vim.keymap.set('n', '<leader>es', ':sp ' .. expand_current_dir_command)
 

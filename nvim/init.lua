@@ -116,6 +116,13 @@ vim.g.netrw_liststyle = 3
 --  LSP
 -- =====
 
+local lsp_group = vim.api.nvim_create_augroup('lsp_group', { clear = true })
+vim.api.nvim_create_autocmd('LspAttach', {
+		callback = function()
+				vim.keymap.set('n', '<C-,>', vim.diagnostic.open_float)
+		end
+})
+
 vim.lsp.enable({
 		'clangd'
 })

@@ -1,5 +1,10 @@
 typeset -U path
-path=(~/.texlive/2023/bin/x86_64-linux $path)
+path=(
+		~/.local/texlive/2025/bin/x86_64-linux
+		~/.local/bin
+		$path
+)
+
 # rubygem bins
 export GEM_HOME="$(gem env user_gemhome)"
 path=($GEM_HOME/bin $path)

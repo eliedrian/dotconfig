@@ -75,6 +75,10 @@ zstyle :compinstall filename '~/.zshrc'
 
 # aliases
 alias ls='lsd'
+alias l='ls -l'
+alias trash='gio trash'
+
+mkcd() { builtin mkdir -p "$@" && builtin cd "$@"; }
 
 # do ls after cd
 cd() { builtin cd "$@" && ls; }

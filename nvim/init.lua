@@ -31,6 +31,21 @@ vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
 	command = 'source <afile>'
 })
 
+-- filetype augroup
+local filetype_group = vim.api.nvim_create_augroup('filetype_group', { clear = true })
+
+vim.api.nvim_create_autocmd({ 'FileType' }, {
+	pattern = 'tex',
+	group = filetype_group,
+	command = 'setlocal ts=2 sts=2 sw=2 expandtab'
+})
+
+vim.api.nvim_create_autocmd({ 'FileType' }, {
+	pattern = 'make',
+	group = filetype_group,
+	command = 'setlocal ts=8 sts=8 sw=8 noexpandtab'
+})
+
 -- smart case search
 vim.opt.ignorecase = true
 vim.opt.smartcase = true

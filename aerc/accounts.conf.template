@@ -1,0 +1,10 @@
+[{account name}]
+source             = notmuch://~/.mail
+outgoing           = smtps://{username}@smtp.gmail.com:465
+outgoing-cred-cmd  = pass {email}
+default            = INBOX
+from               = {name} <{email}>
+query-map          = ~/.config/aerc/{account name}.qmap
+exclude-tags       = trash,spam
+check-mail-cmd     = notmuch new
+check-mail-timeout = 45s

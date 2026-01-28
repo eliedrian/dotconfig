@@ -12,8 +12,8 @@
 # the database location (in a subdirectory called ".notmuch").
 #
 [database]
-path=~/.mail/
-hook_dir=~/.config/notmuch/hooks/
+path=.mail
+hook_dir=.config/notmuch/hooks
 # User configuration
 #
 # Here is where you can let notmuch know how you would like to be
@@ -49,7 +49,7 @@ other_email=<other_email>
 #
 [new]
 tags=new
-ignore=/.*[.](json|lock|bak)$/
+ignore=/.*[.](json|lock|bak)$/;.uidvalidity;.mbsyncstate
 # Search configuration
 #
 # The following option is supported here:
@@ -60,7 +60,7 @@ ignore=/.*[.](json|lock|bak)$/
 #		query will override that exclusion.
 #
 [search]
-exclude_tags=spam
+exclude_tags=spam;trash
 # Maildir compatibility configuration
 #
 # The following option is supported here:

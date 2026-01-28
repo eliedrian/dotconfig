@@ -1,0 +1,26 @@
+configurations:
+  -
+    host: imap.gmail.com
+    port: 993
+    tls: true
+    tlsOptions:
+      rejectUnauthorized: true
+    usernameCMD: 'cat ~/.mail/personal-username'
+    passwordCMD: 'pass $(cat ~/.mail/personal-username) | head -n1'
+    boxes:
+      -
+        mailbox: INBOX
+        onNewMail: 'notmuch new'
+
+  -
+    host: imap.gmail.com
+    port: 993
+    tls: true
+    tlsOptions:
+      rejectUnauthorized: true
+    usernameCMD: 'cat ~/.mail/upmail-username'
+    passwordCMD: 'pass $(cat ~/.mail/upmail-username) | head -n1'
+    boxes:
+      -
+        mailbox: INBOX
+        onNewMail: 'notmuch new'

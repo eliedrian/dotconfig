@@ -68,6 +68,7 @@ vim.opt.history = 10000
 -- default tab/spaces
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
 vim.opt.expandtab = false
 
 -- ux improvement

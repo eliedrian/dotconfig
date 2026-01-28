@@ -46,6 +46,12 @@ vim.api.nvim_create_autocmd({ 'FileType' }, {
 	command = 'setlocal ts=8 sts=8 sw=8 noexpandtab'
 })
 
+vim.api.nvim_create_autocmd({ 'FileType' }, {
+	pattern = 'make',
+	group = filetype_group,
+	command = 'setlocal ts=8 sts=8 sw=8 noexpandtab'
+})
+
 -- smart case search
 vim.opt.ignorecase = true
 vim.opt.smartcase = true

@@ -252,8 +252,8 @@ workspace_auto_back_and_forth no
 # 
 # Set border
 smart_borders on
-default_border pixel 2
-default_floating_border pixel 2
+default_border pixel 3
+default_floating_border pixel 3
 
 # set gaps between windows
 gaps inner 5

@@ -308,7 +308,7 @@ bindsym $mod+Backspace exec sleep 0.3 && pkill --signal SIGUSR1 swayidle
 bindsym $mod+Comma exec $term --working-directory=/home/tan/vimwiki -e nvim ~/vimwiki/index.wiki
 
 # Autostarts
-exec_always ~/.config/sway/inactive-windows-transparency.py
+#exec_always ~/.config/sway/inactive-windows-transparency.py
 exec fcitx5 -d
 exec gammastep-indicator
 exec wl-paste -t text --watch clipman store

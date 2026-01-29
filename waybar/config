@@ -151,5 +151,9 @@
 		"on-click": "~/.config/waybar/sw.sh",
 		"on-click-right": "~/.config/waybar/sw.sh --stop",
 		"return-type": "json"
+	},
+	"sway/workspaces": {
+		"disable-scroll": true,
+		"format": "{name}"
 	}
 }

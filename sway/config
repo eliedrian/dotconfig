@@ -291,6 +291,10 @@ include /etc/sway/config.d/*
 
 mouse_warping container
 
+client.focused #59a73e #59a73e #ffffff
+client.focused_inactive #4c3363 #4c3363 #ffffff
+client.unfocused #4c3363 #4c3363 #ffffff
+
 # grimshot
 bindsym $mod+Shift+s exec ~/.config/sway/grimshot copy area
 

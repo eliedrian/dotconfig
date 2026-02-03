@@ -5,7 +5,7 @@
     //"width": 1920, // Waybar width
     "modules-left": ["sway/workspaces", "sway/mode"],
 	"modules-center": ["clock"],
-    "modules-right": ["sway/window", "custom/stopwatch", "custom/media", "pulseaudio", "network", "temperature", "battery", "tray"],
+    "modules-right": ["sway/window", "custom/stopwatch", "custom/media", "idle_inhibitor", "pulseaudio", "network", "temperature", "battery", "tray"],
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,

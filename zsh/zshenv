@@ -29,3 +29,5 @@ export XMODIFIERS=@im=fcitx
 export EDITOR=nvim
 
 export NOTMUCH_CONFIG=~/.config/notmuch/config
+
+export LESS=-Ri

@@ -11,6 +11,9 @@ configurations:
       -
         mailbox: INBOX
         onNewMail: 'notmuch new'
+      -
+        mailbox: '[Gmail]/Sent Mail'
+        onNewMail: 'notmuch new'
 
   -
     host: imap.gmail.com
@@ -23,4 +26,7 @@ configurations:
     boxes:
       -
         mailbox: INBOX
+        onNewMail: 'notmuch new'
+      -
+        mailbox: '[Gmail]/Sent Mail'
         onNewMail: 'notmuch new'

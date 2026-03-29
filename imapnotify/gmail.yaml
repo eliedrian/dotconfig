@@ -7,13 +7,10 @@ configurations:
       rejectUnauthorized: true
     usernameCMD: 'cat ~/.mail/personal-username'
     passwordCMD: 'pass $(cat ~/.mail/personal-username) | head -n1'
+    onNewMail: 'systemctl --user start syncmail@personal'
     boxes:
       -
         mailbox: INBOX
-        onNewMail: 'notmuch new'
-      -
-        mailbox: '[Gmail]/Sent Mail'
-        onNewMail: 'notmuch new'
 
   -
     host: imap.gmail.com
@@ -23,10 +20,7 @@ configurations:
       rejectUnauthorized: true
     usernameCMD: 'cat ~/.mail/upmail-username'
     passwordCMD: 'pass $(cat ~/.mail/upmail-username) | head -n1'
+    onNewMail: 'systemctl --user start syncmail@upmail'
     boxes:
       -
         mailbox: INBOX
-        onNewMail: 'notmuch new'
-      -
-        mailbox: '[Gmail]/Sent Mail'
-        onNewMail: 'notmuch new'

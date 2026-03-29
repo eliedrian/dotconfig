@@ -6,5 +6,5 @@ default            = INBOX
 from               = {name} <{email}>
 query-map          = ~/.config/aerc/{account name}.qmap
 exclude-tags       = trash,spam
-check-mail-cmd     = notmuch new
+check-mail-cmd	   = systemctl --user start syncmail@{mailbox}
 check-mail-timeout = 45s

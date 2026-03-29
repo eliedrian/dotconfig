@@ -23,7 +23,6 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 export QT_QPA_PLATFORM=xcb
 
 # text input envs
-export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 
 export EDITOR=nvim

@@ -1,6 +1,6 @@
 typeset -U path
 path=(
-		~/.local/texlive/2025/bin/x86_64-linux
+		~/.local/texlive/2026/bin/x86_64-linux
 		~/.local/bin
 		$path
 )
@@ -10,7 +10,7 @@ export GEM_HOME="$(gem env user_gemhome)"
 path=($GEM_HOME/bin $path)
 
 export -TU INFOPATH infopath
-infopath=(~/.texlive/2023/texmf-dist/doc/info $infopath)
+infopath=(~/.local/texlive/2026/texmf-dist/doc/info $infopath)
 
 export WLR_RENDERER=vulkan
 export MOZ_ENABLE_WAYLAND=1

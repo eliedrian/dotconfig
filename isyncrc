@@ -29,6 +29,7 @@ Host imap.gmail.com
 UserCmd "cat ~/.mail/personal-username"
 PassCmd "pass $(cat ~/.mail/personal-username)"
 TLSType IMAPS
+Timeout 120
 
 Channel personal
 Far :personal-remote:
@@ -46,6 +47,7 @@ Host imap.gmail.com
 UserCmd "cat ~/.mail/upmail-username"
 PassCmd "pass $(cat ~/.mail/upmail-username)"
 TLSType IMAPS
+Timeout 120
 
 Channel upmail
 Far :upmail-remote:

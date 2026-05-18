@@ -7,7 +7,8 @@ Wants=network-online.target
 Type=oneshot
 Environment=NOTMUCH_CONFIG=/home/tan/.config/notmuch/config
 ExecStartPre=/usr/bin/notmuch-mailmover -l warn
-ExecStart=/usr/bin/flock -w 120 /run/user/%U/mbsync.lock /usr/bin/mbsync %i
-ExecStartPost=/usr/bin/notmuch new
+ExecStart=/usr/bin/flock -w 120 /run/user/%U/mbsync.lock /usr/bin/mbsync --pull %i
+ExecStart=/usr/bin/notmuch new
+ExecStart=/usr/bin/flock -w 120 /run/user/%U/mbsync.lock /usr/bin/mbsync --push %i
 
 SyslogIdentifier=syncmail-%i

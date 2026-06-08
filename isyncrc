@@ -4,6 +4,7 @@
 Expunge Both
 Create Both
 Sync Full
+SyncState *
 
 # More sections follow
 #
@@ -21,7 +22,7 @@ Sync Full
 
 MaildirStore personal-local
 Path ~/.mail/personal/
-Inbox ~/.mail/personal/INBOX
+Inbox ~/.mail/personal/Inbox
 SubFolders Verbatim
 
 IMAPStore personal-remote
@@ -31,11 +32,37 @@ PassCmd "pass $(cat ~/.mail/personal-username)"
 TLSType IMAPS
 Timeout 120
 
-Channel personal
-Far :personal-remote:
-Near :personal-local:
-SyncState *
-Patterns ![Gmail]* "INBOX" "[Gmail]/All Mail" "[Gmail]/Spam" "[Gmail]/Trash"
+Channel personal-inbox
+Far :personal-remote:INBOX
+Near :personal-local:Inbox
+
+Channel personal-sent
+Far :personal-remote:"[Gmail]/Sent Mail"
+Near :personal-local:Sent
+
+Channel personal-archive
+Far :personal-remote:"[Gmail]/All Mail"
+Near :personal-local:Archive
+
+Channel personal-spam
+Far :personal-remote:"[Gmail]/Spam"
+Near :personal-local:Spam
+
+Channel personal-trash
+Far :personal-remote:"[Gmail]/Trash"
+Near :personal-local:Trash
+
+Channel personal-drafts
+Far :personal-remote:"[Gmail]/Drafts"
+Near :personal-local:Drafts
+
+Group personal
+Channel personal-inbox
+Channel personal-sent
+Channel personal-archive
+Channel personal-spam
+Channel personal-trash
+Channel personal-drafts
 
 MaildirStore upmail-local
 Path ~/.mail/upmail/
@@ -49,12 +76,35 @@ PassCmd "pass $(cat ~/.mail/upmail-username)"
 TLSType IMAPS
 Timeout 120
 
-Channel upmail
-Far :upmail-remote:
-Near :upmail-local:
-SyncState *
-Patterns ![Gmail]* "INBOX" "[Gmail]/All Mail" "[Gmail]/Spam" "[Gmail]/Trash"
+Channel upmail-inbox
+Far :upmail-remote:INBOX
+Near :upmail-local:Inbox
 
-Group boxes
-Channels personal upmail
+Channel upmail-sent
+Far :upmail-remote:"[Gmail]/Sent Mail"
+Near :upmail-local:Sent
+
+Channel upmail-archive
+Far :upmail-remote:"[Gmail]/All Mail"
+Near :upmail-local:Archive
+
+Channel upmail-spam
+Far :upmail-remote:"[Gmail]/Spam"
+Near :upmail-local:Spam
+
+Channel upmail-trash
+Far :upmail-remote:"[Gmail]/Trash"
+Near :upmail-local:Trash
+
+Channel upmail-drafts
+Far :upmail-remote:"[Gmail]/Drafts"
+Near :upmail-local:Drafts
+
+Group upmail
+Channel upmail-inbox
+Channel upmail-sent
+Channel upmail-archive
+Channel upmail-spam
+Channel upmail-trash
+Channel upmail-drafts
 

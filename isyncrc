@@ -58,11 +58,9 @@ Near :personal-local:Drafts
 
 Group personal
 Channel personal-inbox
-Channel personal-sent
 Channel personal-archive
 Channel personal-spam
 Channel personal-trash
-Channel personal-drafts
 
 MaildirStore upmail-local
 Path ~/.mail/upmail/
@@ -102,9 +100,7 @@ Near :upmail-local:Drafts
 
 Group upmail
 Channel upmail-inbox
-Channel upmail-sent
 Channel upmail-archive
 Channel upmail-spam
 Channel upmail-trash
-Channel upmail-drafts
 

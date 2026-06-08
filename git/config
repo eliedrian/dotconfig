@@ -20,3 +20,5 @@
 	name = Eli Tan
 [color]
 	ui = true
+[init]
+	defaultBranch = main

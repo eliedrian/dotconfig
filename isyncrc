@@ -40,10 +40,6 @@ Channel personal-sent
 Far :personal-remote:"[Gmail]/Sent Mail"
 Near :personal-local:Sent
 
-Channel personal-archive
-Far :personal-remote:"[Gmail]/All Mail"
-Near :personal-local:Archive
-
 Channel personal-spam
 Far :personal-remote:"[Gmail]/Spam"
 Near :personal-local:Spam
@@ -56,9 +52,15 @@ Channel personal-drafts
 Far :personal-remote:"[Gmail]/Drafts"
 Near :personal-local:Drafts
 
+Channel personal-reference
+Far :personal-remote:Reference
+Near :personal-local:Reference
+
 Group personal
+Channel personal-drafts
 Channel personal-inbox
-Channel personal-archive
+Channel personal-reference
+Channel personal-sent
 Channel personal-spam
 Channel personal-trash
 
@@ -82,9 +84,9 @@ Channel upmail-sent
 Far :upmail-remote:"[Gmail]/Sent Mail"
 Near :upmail-local:Sent
 
-Channel upmail-archive
-Far :upmail-remote:"[Gmail]/All Mail"
-Near :upmail-local:Archive
+Channel upmail-reference
+Far :upmail-remote:Reference
+Near :upmail-local:Reference
 
 Channel upmail-spam
 Far :upmail-remote:"[Gmail]/Spam"
@@ -99,8 +101,10 @@ Far :upmail-remote:"[Gmail]/Drafts"
 Near :upmail-local:Drafts
 
 Group upmail
+Channel upmail-drafts
 Channel upmail-inbox
-Channel upmail-archive
+Channel upmail-reference
+Channel upmail-sent
 Channel upmail-spam
 Channel upmail-trash
 

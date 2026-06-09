@@ -1,36 +1,52 @@
 maildir: ~/.mail
 rename: true
-rule_match_mode: first
+rule_match_mode: unique
 rules:
-  - folder: "personal/[Gmail]/Trash"
+  - folder: "personal/Trash"
     query: tag:personal and tag:trash
     prefix: personal
 
-  - folder: "personal/[Gmail]/Spam"
+  - folder: "personal/Spam"
     query: tag:personal and tag:spam
     prefix: personal
 
-  - folder: "personal/INBOX"
+  - folder: "personal/Inbox"
     query: tag:personal and tag:inbox
     prefix: personal
 
-  - folder: "personal/[Gmail]/All Mail"
-    query: tag:personal
+  - folder: "personal/Drafts"
+    query: tag:personal and tag:draft
     prefix: personal
 
-  - folder: "upmail/[Gmail]/Trash"
+  - folder: "personal/Sent"
+    query: tag:personal and tag:sent
+    prefix: personal
+
+  - folder: "personal/Reference"
+    query: tag:personal and tag:reference
+    prefix: personal
+
+  - folder: "upmail/Trash"
     query: tag:upmail and tag:trash
     prefix: upmail
 
-  - folder: "upmail/[Gmail]/Spam"
+  - folder: "upmail/Spam"
     query: tag:upmail and tag:spam
     prefix: upmail
 
-  - folder: "upmail/INBOX"
+  - folder: "upmail/Inbox"
     query: tag:upmail and tag:inbox
     prefix: upmail
 
-  - folder: "upmail/[Gmail]/All Mail"
-    query: tag:upmail
+  - folder: "upmail/Drafts"
+    query: tag:upmail and tag:draft
+    prefix: upmail
+
+  - folder: "upmail/Sent"
+    query: tag:upmail and tag:sent
+    prefix: upmail
+
+  - folder: "upmail/Reference"
+    query: tag:upmail and tag:reference
     prefix: upmail
 

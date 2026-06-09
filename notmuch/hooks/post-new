@@ -7,19 +7,45 @@ accounts=(
 	upmail
 )
 
-tag_folder() {
-	local folder="$1"
-	shift
+folder_tags=(
+	reference
+	inbox
+	spam
+	trash
+	draft
+	sent
+)
 
-	notmuch tag "$@" -- folder:\""/$account/$folder/"\"
+emit_folder_rule() {
+	local folder="/$account\/$2/"
+	printf '+%s +%s -- (tag:renew or tag:new) and folder:"%s"\n' "$1" "$account" "$folder"
 }
 
-for account in "${accounts[@]}"; do
-	tag_folder "Archive" -trash -spam +"$account"
-	tag_folder "Inbox" +inbox -trash -spam +"$account"
-	tag_folder "Spam" +spam -trash +"$account"
-	tag_folder "Trash" +trash +"$account"
-	notmuch tag +sent -- tag:new and from:"$(cat ~/.mail/$account-username)"
-done
+emit_account_rules() {
+	local account=$1
 
-notmuch tag -new -- tag:new
+	emit_folder_rule "draft" "Drafts"
+	emit_folder_rule "inbox" "Inbox"
+	emit_folder_rule "reference" "Reference"
+	emit_folder_rule "sent" "Sent"
+	emit_folder_rule "spam" "Spam"
+	emit_folder_rule "trash" "Trash"
+}
+
+generate_batch_tag() {
+	printf '%s\n' \
+		"+renew -- lastmod:-1.." \
+		'-trash -spam -inbox -draft -sent -reference -- tag:renew'
+
+	for account in "${accounts[@]}"; do
+		emit_account_rules "$account"
+	done
+
+	printf '%s\n' \
+		'-renew -- tag:renew' \
+		'-new -- tag:new'
+}
+
+generate_batch_tag | notmuch tag --batch
+
+#notmuch tag -new -- tag:new

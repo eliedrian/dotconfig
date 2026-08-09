@@ -7,7 +7,7 @@ configurations:
       rejectUnauthorized: true
     usernameCMD: 'cat ~/.mail/personal-username'
     passwordCMD: 'pass $(cat ~/.mail/personal-username) | head -n1'
-    onNewMail: 'systemctl --user start syncmail@personal'
+    onNewMail: '~/.config/aerc/scripts/checkmail.sh personal'
     boxes:
       -
         mailbox: INBOX
@@ -20,7 +20,7 @@ configurations:
       rejectUnauthorized: true
     usernameCMD: 'cat ~/.mail/upmail-username'
     passwordCMD: 'pass $(cat ~/.mail/upmail-username) | head -n1'
-    onNewMail: 'systemctl --user start syncmail@upmail'
+    onNewMail: '~/.config/aerc/scripts/checkmail.sh upmail'
     boxes:
       -
         mailbox: INBOX

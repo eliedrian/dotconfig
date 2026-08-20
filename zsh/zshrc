@@ -80,6 +80,14 @@ alias trash='gio trash'
 
 mkcd() { builtin mkdir -p "$@" && builtin cd "$@"; }
 
+cdt() { builtin cd $(mktemp -d) }
+
+define() {
+	sdcv -n --utf8-output --color "$@" 2>&1 | \
+	fold --width=$(tput cols) | \
+	less --quit-if-one-screen -RX
+}
+
 # do ls after cd
 cd() { builtin cd "$@" && ls; }
 

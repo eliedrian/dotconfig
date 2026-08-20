@@ -82,6 +82,7 @@ mkcd() { builtin mkdir -p "$@" && builtin cd "$@"; }
 
 cdt() { builtin cd $(mktemp -d) }
 
+# place dictionary files (dict.dz, ifo, idx) in /usr/share/stardict/dic
 define() {
 	sdcv -n --utf8-output --color "$@" 2>&1 | \
 	fold --width=$(tput cols) | \

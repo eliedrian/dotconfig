@@ -7,9 +7,9 @@ return {
   ---@module "fzf-lua"
   ---@type fzf-lua.Config|{}
   ---@diagnostics disable: missing-fields
-  opts = {},
-  config = function()
-	  vim.keymap.set('n', '<C-p>', '<cmd>FzfLua global<cr>')
-  end
+  keys = {
+	  { "<C-p>", "<cmd>FzfLua global<cr>", "FzfLua global search" },
+	  { "<C-g>", "<cmd>FzfLua grep<cr>", "FzfLua grep search" },
+  },
   ---@diagnostics enable: missing-fields
 }
